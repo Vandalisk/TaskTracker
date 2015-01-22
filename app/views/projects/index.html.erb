@@ -1,0 +1,22 @@
+<h1>Listing projects</h1>
+<table>	
+	<tr>
+		 <td><%= link_to "New project", new_project_path%></td>
+	</tr>
+    <tr>
+    <% if @projects.size == 0 %>
+    	<th>NO Projects Found</th>
+    </tr>
+    <% else%>
+     <tr>
+		 <th>Name of project</th>		 
+	 </tr>	
+	 <% @projects.each do |project|%>
+	 <tr>
+		 <td><%= link_to  project.title, project%></td>		 
+		 <td><%= link_to "Edit", edit_project_path(project)%></td>
+		 <td><%= link_to "Destroy", project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	 </tr>
+	 <% end %>	 
+	<% end %>	
+</table>

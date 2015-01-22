@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  rating: 1
+  description: MyText
+  customer: MyString
+  performer: MyString
+  project_id: 1
+  state: MyString
+
+two:
+  title: MyString
+  rating: 1
+  description: MyText
+  customer: MyString
+  performer: MyString
+  project_id: 1
+  state: MyString
