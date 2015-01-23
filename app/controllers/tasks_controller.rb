@@ -1,8 +1,14 @@
 class TasksController < ApplicationController
+	before_action :authenticate_admin!, except: [:index, :show]
 	before_action :get_project
+	before_action :get_task, only: [:show, :edit, :update, :destroy]
 
 	def get_project
 		@project = Project.find(params[:project_id])
+	end
+
+	def get_task
+		@task = Task.find(params[:id])
 	end
 
 	def index	    	    		
@@ -10,7 +16,7 @@ class TasksController < ApplicationController
 	end
 
 	def show		 
-		@task = Task.find(params[:id])			
+					
 	end
 
 	def new		
@@ -18,7 +24,7 @@ class TasksController < ApplicationController
 	end
 
 	def edit
-		@task = Task.find(params[:id])
+		
 	end
 
 	def create		
@@ -31,8 +37,8 @@ class TasksController < ApplicationController
 		end
 	end
 
-	def update
-	   @task = Task.find(params[:id])
+	def update	
+	   
 	    if(@task.update_attributes(task_params))
 	    	redirect_to project_tasks_path(@project)
 	    else
@@ -41,7 +47,7 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-		@task = Task.find(params[:id])
+
 		@task.destroy
 
 		redirect_to project_tasks_path(@project)
